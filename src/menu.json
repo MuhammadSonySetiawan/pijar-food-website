@@ -1,0 +1,34 @@
+{
+    "menu" : [
+      {
+        "title": "Banana Smoothie Pop",
+        "image": "bananaSmoothiePop-.webp",
+        "slug": "banana-smoothie-pop"
+      },
+      {
+        "title": "Bomb Chicken",
+        "image": "bombChicken.webp",
+        "slug": "bomb-chicken"
+      },
+      {
+        "title": "Chiken Kare",
+        "image": "chikenKare.webp",
+        "slug": "chiken-kare"
+      },
+      {
+        "title": "Coffe Lava Cake",
+        "image": "coffeLavaCake.webp",
+        "slug": "coffe-lava-cake"
+      },
+    {
+      "title": "Indian Salad",
+      "image": "indianSsalad.webp",
+      "slug": "indian-salad"
+    },
+    {
+      "title": "Sugar Salmon",
+      "image": "sugarSalmon.webp",
+      "slug": "sugar-salmon"
+    }
+    ]
+}

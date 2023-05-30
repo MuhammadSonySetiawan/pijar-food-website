@@ -1,0 +1,11 @@
+.backgroundLift {
+width: 300%;
+height: 170%;
+}
+
+@media only screen and (max-width: 768px) {
+    .backgroundLift{
+    display: none;
+    visibility: hidden;
+    }
+}
