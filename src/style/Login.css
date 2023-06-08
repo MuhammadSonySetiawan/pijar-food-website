@@ -1,11 +1,14 @@
-.backgroundLiftd {
-width:100%;
-height: 100%;
+.bgLogin {
+    background-position: 50%;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 768px) {
-    .backgroundLift {
+    .bgLogin {
     display: none;
     visibility: hidden;
+    }
+    .noneLogin{
+        position: absolute;
     }
 }

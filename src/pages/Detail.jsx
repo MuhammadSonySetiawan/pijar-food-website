@@ -1,24 +1,28 @@
 import "../style/Detail.css";
+
+import React from "react";
+import { useLocation } from "react-router";
+
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-
-import RecipesList from "../menu.json";
-import { useLocation } from "react-router";
-
-import React from "react";
 import NavbarPhone from "../components/NavbarPhone";
 
+import axios from "axios";
+
 function Detail() {
-  const detail = RecipesList.menu;
   const location = useLocation();
-  const [currentRecipe, setCurrentRecipe] = React.useState(null);
+  const [currentRecipe, setCurrentRecipe] = React.useState([]);
+  const id = location?.search?.split("?id=")[1];
+  const title = console.log(location);
+
+  // hendle scrol to top
+  React.useEffect(() => {
+     window.scrollTo(0, 0);
+  }, []);
 
   React.useEffect(() => {
-    const currentSlug = location?.pathname?.split("/")[2];
-     window.scrollTo(0, 0);
-    console.log(detail);
-    setCurrentRecipe(detail.find((res) => res.slug === currentSlug));
+    axios.get(`${process.env.REACT_APP_BASE_URL}/recipes/${id}`).then((response) => setCurrentRecipe(response?.data?.data[0]));
   }, []);
 
   return (
@@ -37,7 +41,7 @@ function Detail() {
         </div>
         <div className="collapse" id="collapseExample">
           <div className="card card-body">
-            <NavbarPhone/>
+            <NavbarPhone />
           </div>
         </div>
       </header>
@@ -48,25 +52,13 @@ function Detail() {
         <h1 className="text-center text-primary">{currentRecipe?.title}</h1>
 
         <div className="d-flex justify-content-center">
-          <img src={`/images/${currentRecipe?.image}`} className="main-image" />
+          <img src={currentRecipe?.recipePicture} className="main-image" />
         </div>
 
         <div className="row mt-5">
           <div className="col offset-md-2">
             <h2>Ingredients</h2>
-            <ul>
-              <li>1 pc burger bun (I use bernardi)</li>
-              <li>1 beef burger (Bernardi)</li>
-              <li>1/4 tsp parsley</li>
-              <li>1/4 tsp mayonnaise</li>
-              <li>1 tbsp hot sauce</li>
-              <li>1 sheet of lettuce, roughly chopped</li>
-              <li>sufficient cucumber</li>
-              <li>enough onions</li>
-              <li>enough tomatoes (I don't use it, because I don't really like it)</li>
-              <li>15 gr cheddar cheese (chopped or grated yes optional, I grated it)</li>
-              <li>sufficient butter / margarine</li>
-            </ul>
+            <ul>{currentRecipe?.ingredients}</ul>
           </div>
         </div>
 
@@ -74,7 +66,7 @@ function Detail() {
           <div className="col offset-md-2">
             <h2>Video Step</h2>
             <div className="btn btn-warning">
-              <a className="text-dark text-decoration-none" href="https://www.youtube.com/watch?v=BS5zxLxxV18">
+              <a className="text-dark text-decoration-none" href={currentRecipe?.videoLink}>
                 Open video step
               </a>
             </div>

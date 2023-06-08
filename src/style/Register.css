@@ -1,11 +1,17 @@
-.backgroundLift {
-width: 300%;
-height: 170%;
+.bgRegistrasi {
+    background-position: 100%;
+    background-size: cover;
+}
+.noneRegistrasi {
+    
 }
 
 @media only screen and (max-width: 768px) {
-    .backgroundLift{
+    .bgRegistrasi {
     display: none;
     visibility: hidden;
+    }
+    .noneRegistrasi{
+        position: absolute;
     }
 }

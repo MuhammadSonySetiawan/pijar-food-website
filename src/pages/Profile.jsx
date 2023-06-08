@@ -1,17 +1,44 @@
+import React from "react";
+import "../style/Profile.css";
+
+import RecipesCard from "../components/RecipesCard";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import "../style/Profile.css";
 import NavbarPhone from "../components/NavbarPhone";
 
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 function Profile() {
-  return (
-    <div className="">
-      {/* <!-- start of header --> */}
-      {/* <Navbar /> */}
-      {/* <!-- end of header --> */}
+  const navigate = useNavigate()
+  const [profile, setProfile] = React.useState(null)
+  const [recipeList, setRecipeList] = React.useState([])
 
+  // const token = localStorage.getItem("token");
+  // console.log(token)
+   
+
+  React.useEffect(() => {
+    if(!localStorage.getItem('auth')){
+      navigate('/login')
+    }
+  }, [] )
+
+  React.useEffect(() => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/users`).then((result) => {
+      setProfile(result.data?.data[0]);
+    });
+  }, [] )
+
+  React.useEffect(()=>{
+      axios.get(`${process.env.REACT_APP_BASE_URL}/recipes/users/me`).then((result) => {
+        setRecipeList(result?.data?.data);
+      });
+  },[])
+
+  return (
+    <div>
       <header>
         <nav className="container mt-4">
           <div className="row animate__animated animate__fadeInDown">
@@ -33,10 +60,10 @@ function Profile() {
       {/* <!-- Start of Content --> */}
       <div className="container mb-4">
         <div className="d-flex justify-content-center mt-2">
-          <img src="images/profile.webp" className="rounded-circle" alt="Cinque Terre" width="100" height="100" />
+          <img src={profile?.photo} className="rounded-circle" alt="Cinque Terre" width="100" height="100" />
         </div>
         <div className="mt-3 d-flex justify-content-center">
-          <h3 className="text-center text-primary">Sonny</h3>
+          <h3 className="text-center text-primary">{profile?.fullName}</h3>
         </div>
       </div>
       {/* <!-- end of content --> */}
@@ -63,7 +90,13 @@ function Profile() {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-5">
+                {recipeList.map((item) => (
+                  <RecipesCard title={item?.title} image={item?.recipePicture} id={item?.id} />
+                ))}
+              </div>
+
+              {/* <div className="row">
                 <div className="col-md-4 col-xs-12 mb-4">
                   <div
                     className="menu-background"
@@ -96,7 +129,7 @@ function Profile() {
                     <h3 style={{ textShadow: "0px 0px 2px rgba(0, 0, 0, 0.4)" }}>Chiken Kare</h3>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

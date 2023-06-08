@@ -4,8 +4,40 @@ import "../style/AddRecipes.css";
 import NavbarPhone from "../components/NavbarPhone";
 
 import React from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function AddRecipes() {
+ const [recipePicture, setRecipePicture] = React.useState(null)
+ const [title, setTitle] = React.useState(null)
+ const [ingredients, setIngredients] = React.useState(null)
+ const [videoLink, setVideoLink] = React.useState(null)
+
+  const hendleAddRecipes = () => {
+    axios
+      .post(`https://easy-pink-walrus-garb.cyclic.app/recipes`, {
+        recipePicture: recipePicture,
+        title: title,
+        ingredients: ingredients,
+        videoLink: videoLink,
+      })
+      .then((result) => {
+        Swal.fire({
+          title: "Add Recipes Success",
+          text: "Add Recipes Success, redirect to app",
+          icon: "success",
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Add Recipes Error!",
+          text: error?.response?.data?.message ?? "Someting wrong in our app",
+          icon: "error",
+        });
+      });
+
+  };
+
   return (
     <div>
       {/* <!-- start of header --> */}
@@ -32,23 +64,23 @@ function AddRecipes() {
       <section id="content">
         <div className="container">
           <div className="input-group mb-3 mt-3">
-            <input className="form-control h-20" type="file" id="formFileDisabled" placeholder="Comment" style={{ height: "200px" }} />
+            <input className="form-control h-20" type="file" id="formFileDisabled" style={{ height: "200px" }} onChange={(e) => setRecipePicture(e.target.value.split(`\\`)[2])} />
           </div>
 
           <div className="mb-3">
-            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Title" />
+            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
           </div>
 
           <div className="mb-3">
-            <textarea className="form-control" style={{ height: "200px" }} id="exampleFormControlTextarea1" placeholder="Ingredients"></textarea>
+            <textarea className="form-control" style={{ height: "200px" }} id="exampleFormControlTextarea1" placeholder="Ingredients" onChange={(e) => setIngredients(e.target.value)}></textarea>
           </div>
 
           <div className="mb-3">
-            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Video" />
+            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Video" onChange={(e) => setVideoLink(e.target.value)} />
           </div>
 
           <div className="mt-3 d-flex justify-content-center">
-            <button className="btn btn-warning" style={{ width: "150px" }}>
+            <button className="btn btn-warning" style={{ width: "150px" }} onClick={hendleAddRecipes}>
               Post
             </button>
           </div>

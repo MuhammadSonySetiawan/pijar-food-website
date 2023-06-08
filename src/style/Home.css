@@ -24,7 +24,7 @@
 }
 
 .bg_yellow_1 {
-  height: 438px;
+  height: 446px;
   width: 32% !important;
   position: absolute;
   right: 50%;
@@ -85,7 +85,14 @@ footer {
 
 } */
 
-@media only screen and (max-width: 575px) {
+/* @media only screen and (max-witdh: 767px) {
+  .bg-yellow1{
+    display: none;
+    visibility: hidden;
+  }  
+} */
+
+@media only screen and (max-width: 767px){
   nav {
     display: none;
     visibility: hidden;
@@ -102,7 +109,7 @@ footer {
     width: 100% !important;
   }
 
-  .hide-desktop {
+  header .hide-desktop {
     display: block;
     visibility: visible;
   }
@@ -120,8 +127,10 @@ footer {
   }
 
   .bg_yellow_1 {
-    height: 230px;
-    width : 66% !important;
+    /* height: 230px;
+    width : 66% !important; */
+    display: none;
+    visibility: hidden;
   }
 
   .popular-image{
