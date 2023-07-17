@@ -7,7 +7,10 @@ import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+import { useNavigate } from "react-router-dom";
 function AddRecipes() {
+  const navigate = useNavigate();
+  
  const [recipePicture, setRecipePicture] = React.useState(null)
  const [title, setTitle] = React.useState(null)
  const [ingredients, setIngredients] = React.useState(null)
@@ -27,6 +30,7 @@ function AddRecipes() {
           text: "Add Recipes Success, redirect to app",
           icon: "success",
         });
+        navigate("/home")
       })
       .catch((error) => {
         Swal.fire({

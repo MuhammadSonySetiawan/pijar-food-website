@@ -22,18 +22,24 @@ function Profile() {
   React.useEffect(() => {
     if(!localStorage.getItem('auth')){
       navigate('/login')
+    }else{
+
     }
   }, [] )
 
   React.useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/users`).then((result) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/users`)
+    .then((result) => {
+      console.log(result.data?.data)
       setProfile(result.data?.data[0]);
     });
   }, [] )
 
   React.useEffect(()=>{
       axios.get(`${process.env.REACT_APP_BASE_URL}/recipes/users/me`).then((result) => {
-        setRecipeList(result?.data?.data);
+        // setRecipeList(result?.data?.data[0]);
+        console.log(result);
+
       });
   },[])
 
@@ -91,9 +97,9 @@ function Profile() {
               </div>
 
               <div className="row mt-5">
-                {recipeList.map((item) => (
+                {recipeList.length !== 0 ? (recipeList.map((item) => (
                   <RecipesCard title={item?.title} image={item?.recipePicture} id={item?.id} />
-                ))}
+                ))) : (<p className="text-center">You don't have a recipe list yet</p>)}
               </div>
 
               {/* <div className="row">

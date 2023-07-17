@@ -12,19 +12,31 @@ import axios from "axios";
 
 function Detail() {
   const location = useLocation();
-  const [currentRecipe, setCurrentRecipe] = React.useState([]);
+  const [currentRecipe, setCurrentRecipe] = React.useState(null);
   const id = location?.search?.split("?id=")[1];
-  const title = console.log(location);
+  console.log(id)
+  // const title = console.log(location);
 
   // hendle scrol to top
   React.useEffect(() => {
-     window.scrollTo(0, 0);
+     
   }, []);
 
   React.useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/recipes/${id}`).then((response) => setCurrentRecipe(response?.data?.data[0]));
-  }, []);
+    window.scrollTo(0, 0);
+    axios
+    .get(`${process.env.REACT_APP_BASE_URL}/recipes/`)
+    .then((response) => 
+    // setCurrentRecipe(response?.data?.data[0])
+    console.log(response?.data?.data[0])
 
+      // setCurrentRecipe(response?.data?.data[location?.search?.split("?id=")[1]])
+    )
+      .catch((error) => {
+        console.log(error)
+      })
+  }, []);
+ 
   return (
     <div>
       {/* <!-- start of header --> */}
