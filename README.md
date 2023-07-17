@@ -2,12 +2,23 @@
 <br>
 
 # Aplikasi Pijar Food FE
-Aplikasi Pijar food FE adalah aplikasi tutorial pembuatan berbagai macam makanan di padu dengan video tutorial dan bahan-bahan yang telah ditulis. Aplikasi ini menggunakan database postgresQL, Express JS dan bootstrap 5 dalam pembuatannya
+Aplikasi Pijar food FE adalah aplikasi tutorial pembuatan berbagai macam makanan di padu dengan video tutorial dan bahan-bahan yang telah ditulis. Aplikasi ini menggunakan database postgresQL, Express JS untuk pembuatan backend dan menggunakan library React js, bootstrap 5 untuk pembuatannya frontend.
+
+## Instal
+Situs Resep Makanan dapat berjalan di lokal Anda, unduh repo ini dan buka menggunakan kode studio visual, dan jalankan terminal seperti di bawah ini.
+```sh
+cd food-recipe-fe-react
+npm i
+npm start
+```
 
 ## Fitures Aplikasi Pijar Food FE
 - Tutorial berbagai masakan
 - Di bekali juga dengan video turtorial
 - Responsive website dan mobile
+- Pencarian untuk resep
+- halaman tambah resep
+- halaman resep
 
 ## Tech
 - [Bootstrap](https://getbootstrap.com/) - Framework CSS yang di dalamnya berisi template HTML, CSS, dan JavaScript yang untuk membuat sebuah website yang responsif dengan cepat dan mudah
@@ -17,11 +28,6 @@ Aplikasi Pijar food FE adalah aplikasi tutorial pembuatan berbagai macam makanan
 - [JavaScript] - pemrograman yang digunakan dalam pengembangan website agar lebih dinamis dan interaktif
 - [Sweetalert2](https://sweetalert2.github.io/) - library JavaScript yang menyediakan berbagai pilihan bagi kita untuk membuat berbagai jenis pop-up alert seperti alert biasa, alert error, alert success, alert konfirmasi, dan sebagainya.
 - [React JS](https://legacy.reactjs.org/) -  library JavaScript yang digunakan dalam proses pengembangan aplikasi web dinamis.
-
-## fitur
-- Pencarian untuk resep
-- halaman tambah resep
-- halaman resep
 
 ## Screenshots
 <table>
@@ -56,9 +62,6 @@ Aplikasi Pijar food FE adalah aplikasi tutorial pembuatan berbagai macam makanan
      <td>Profile</td>
   </tr>
 </table>
-
-## Credit
->Muhammad Sony Setiawan
 
 ## Related Project
 
