@@ -139,7 +139,7 @@ const [keyword, setKeyword] = React.useState("")
       {/* <!-- start of new recipe --> */}
       <section id="new-recipe">
         <div className="container">
-          <h2 className="mb-5 subtitle">Popular For You!</h2>
+          <h2 className="mb-2 subtitle">Popular For You!</h2>
           <div className="row align-items-center" style={{ marginTop: "100px" }}>
             <div className="bg_yellow_1"></div>
             <div className="col-md-6 col-xs-12">
