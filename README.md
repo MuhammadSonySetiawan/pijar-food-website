@@ -1,11 +1,11 @@
 <img width="840" src="./screenshot/allDevice.png" border="0" alt="Landing Page" />
 <br>
 
-# Aplikasi Pijar Food FE
-Aplikasi Pijar food FE adalah aplikasi tutorial pembuatan berbagai macam makanan di padu dengan video tutorial dan bahan-bahan yang telah ditulis. Aplikasi ini menggunakan database postgresQL, Express JS untuk pembuatan backend dan menggunakan library React js, bootstrap 5 untuk pembuatannya frontend.
+# Website Pijar Food FE
+The Pijar Food FE is a tutorial application for creating various types of food, combined with video tutorials and written ingredients. This application uses the PostgreSQL database, Express JS for backend development, and utilizes the React JS library and Bootstrap 5 for frontend development.
 
 ## Instal
-Situs Resep Makanan dapat berjalan di lokal Anda, unduh repo ini dan buka menggunakan kode studio visual, dan jalankan terminal seperti di bawah ini.
+The Food Recipe website can run locally on your machine. Please download this repository and open it using Visual Studio Code. Then, execute the following commands in the terminal.
 ```sh
 cd food-recipe-fe-react
 npm i
@@ -13,21 +13,21 @@ npm start
 ```
 
 ## Fitures Aplikasi Pijar Food FE
-- Tutorial berbagai masakan
-- Di bekali juga dengan video turtorial
-- Responsive website dan mobile
-- Pencarian untuk resep
-- halaman tambah resep
-- halaman resep
+- Various cooking tutorials
+- Equipped with video tutorials
+- Responsive website for both desktop and mobile devices
+- Recipe search functionality
+- Add recipe page
+- Recipe page
 
 ## Tech
-- [Bootstrap](https://getbootstrap.com/) - Framework CSS yang di dalamnya berisi template HTML, CSS, dan JavaScript yang untuk membuat sebuah website yang responsif dengan cepat dan mudah
-- [HTML] - Hypertext Markup Language, yaitu bahasa markup standar untuk membuat dan menyusun halaman dan aplikasi web
-- [CSS] - Cascading Style Sheet yaitu digunakan untuk mengatur tampilan elemen yang tertulis dalam bahasa markup
-- [Google Chrome](https://www.google.com/chrome) - Google Chrome merupakan perangkat lunak yang memiliki fungsi untuk mencari, mengakses, dan menampilkan segala bentuk informasi
-- [JavaScript] - pemrograman yang digunakan dalam pengembangan website agar lebih dinamis dan interaktif
-- [Sweetalert2](https://sweetalert2.github.io/) - library JavaScript yang menyediakan berbagai pilihan bagi kita untuk membuat berbagai jenis pop-up alert seperti alert biasa, alert error, alert success, alert konfirmasi, dan sebagainya.
-- [React JS](https://legacy.reactjs.org/) -  library JavaScript yang digunakan dalam proses pengembangan aplikasi web dinamis.
+- [Bootstrap](https://getbootstrap.com/) - A CSS framework is a collection of HTML, CSS, and JavaScript templates that enable the rapid and easy creation of responsive websites.
+- [HTML] - Hypertext Markup Language (HTML) is the standard markup language for creating and structuring web pages and applications.
+- [CSS] - Cascading Style Sheets (CSS) is used to control the appearance of elements written in the markup language.
+- [Google Chrome](https://www.google.com/chrome) - Google Chrome is a software that functions to search, access, and display various forms of information.
+- [JavaScript] - Programming languages used in website development to make them more dynamic and interactive.
+- [Sweetalert2](https://sweetalert2.github.io/) - JavaScript library that provides various options for creating different types of popup alerts such as regular alerts, error alerts, success alerts, confirmation alerts, and so on.
+- [React JS](https://legacy.reactjs.org/) -  JavaScript library used in the development process of dynamic web applications.
 
 ## Screenshots
 <table>
@@ -48,6 +48,24 @@ npm start
  </tr>
   <tr>
    <td>Home</td>
+  </tr>
+ <tr>
+  <td><img width="800px" src="./screenshot/Home-populer-for-you.png" border="0" alt="Home Popular For You" /> </td>
+ </tr>
+  <tr>
+   <td>Home - Popular For You</td>
+  </tr>
+  <tr>
+  <td><img width="800px" src="./screenshot/Home-new-recipe.png" border="0" alt="Home New Recipe" /> </td>
+ </tr>
+  <tr>
+   <td>Home - New Recipe</td>
+  </tr>
+  <tr>
+  <td><img width="800px" src="./screenshot/Home-popular-recipe.png" border="0" alt="Home Popular Recipe" /> </td>
+ </tr>
+  <tr>
+   <td>Home - Popular Recipe</td>
   </tr>
   <tr>
     <td><img width="800px" src="./screenshot/edd-recipe.png" border="0" alt="Add-recipe" /> </td>
