@@ -85,6 +85,6 @@ npm start
 
 - [`Frontend Recipe Food`](https://github.com/MuhammadSonySetiawan/pijar-food-react)
 
-- [`Backend Recipe Food`](https://github.com/MuhammadSonySetiawan/pijar_food_be_rn)
+- [`Backend Recipe Food`](https://github.com/MuhammadSonySetiawan/pijar-food-be)
 
 - [`Demo Recipe Food`](https://pijar-food-react-nine.vercel.app/)
