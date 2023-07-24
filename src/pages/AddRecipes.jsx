@@ -6,10 +6,15 @@ import NavbarPhone from "../components/NavbarPhone";
 import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-
 import { useNavigate } from "react-router-dom";
+
 function AddRecipes() {
   const navigate = useNavigate();
+React.useEffect(()=>{
+  if(!localStorage.getItem('auth')){
+    navigate('./login')
+  }
+},[])
   
  const [recipePicture, setRecipePicture] = React.useState(null)
  const [title, setTitle] = React.useState(null)
@@ -31,6 +36,7 @@ function AddRecipes() {
           icon: "success",
         });
         navigate("/home")
+        
       })
       .catch((error) => {
         Swal.fire({

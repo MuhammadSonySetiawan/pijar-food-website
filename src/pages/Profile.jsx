@@ -22,8 +22,6 @@ function Profile() {
   React.useEffect(() => {
     if(!localStorage.getItem('auth')){
       navigate('/login')
-    }else{
-
     }
   }, [] )
 
@@ -37,8 +35,8 @@ function Profile() {
 
   React.useEffect(()=>{
       axios.get(`${process.env.REACT_APP_BASE_URL}/recipes/users/me`).then((result) => {
-        // setRecipeList(result?.data?.data[0]);
-        console.log(result);
+        setRecipeList(result?.data?.data);
+        console.log(result?.data?.data);
 
       });
   },[])

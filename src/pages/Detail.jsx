@@ -14,29 +14,16 @@ function Detail() {
   const location = useLocation();
   const [currentRecipe, setCurrentRecipe] = React.useState(null);
   const id = location?.search?.split("?id=")[1];
-  console.log(id)
-  // const title = console.log(location);
-
-  // hendle scrol to top
-  React.useEffect(() => {
-     
-  }, []);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
     axios
-    .get(`${process.env.REACT_APP_BASE_URL}/recipes/`)
-    .then((response) => 
-    // setCurrentRecipe(response?.data?.data[0])
-    console.log(response?.data?.data[0])
-
-      // setCurrentRecipe(response?.data?.data[location?.search?.split("?id=")[1]])
+      .get(`${process.env.REACT_APP_BASE_URL}/recipes/${id}`)
+      .then((response) => 
+    setCurrentRecipe(response?.data?.data[0])
     )
-      .catch((error) => {
-        console.log(error)
-      })
   }, []);
- 
+ console.log(currentRecipe)
   return (
     <div>
       {/* <!-- start of header --> */}
@@ -63,9 +50,9 @@ function Detail() {
       <section id="content">
         <h1 className="text-center text-primary">{currentRecipe?.title}</h1>
 
-        <div className="d-flex justify-content-center">
-          <img src={currentRecipe?.recipePicture} className="main-image" />
-        </div>
+          <div className="d-flex justify-content-center">
+            <img src={currentRecipe?.recipePicture} className="main-image" />
+          </div>
 
         <div className="row mt-5">
           <div className="col offset-md-2">

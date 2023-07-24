@@ -15,5 +15,5 @@ function RecipesCard(props) {
       </>
     );
 }
-
+ 
 export default RecipesCard
