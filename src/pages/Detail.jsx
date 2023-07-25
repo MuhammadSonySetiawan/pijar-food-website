@@ -47,7 +47,7 @@ function Detail() {
       {/* <!-- end of header --> */}
 
       {/* <!-- start of content --> */}
-      <section id="content">
+      <section id="content" style={{marginTop:0}}>
         <h1 className="text-center text-primary">{currentRecipe?.title}</h1>
 
           <div className="d-flex justify-content-center">
@@ -75,7 +75,7 @@ function Detail() {
         <div className="row mt-5">
           <div className="row mt-5">
             <div className="col offset-md-2">
-              <textarea className="form-control" aria-label="With textarea" placeholder="Comment" style={{ height: "200px" }}></textarea>
+              <textarea className="form-control" aria-label="With textarea" placeholder="Comment" style={{ height: "200px", width: "82%" }}></textarea>
               <div className="mt-3 d-flex justify-content-center">
                 <button className="btn btn-warning">Comment</button>
               </div>

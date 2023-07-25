@@ -35,7 +35,7 @@ React.useEffect(()=>{
           text: "Add Recipes Success, redirect to app",
           icon: "success",
         });
-        navigate("/home")
+        navigate("/")
         
       })
       .catch((error) => {

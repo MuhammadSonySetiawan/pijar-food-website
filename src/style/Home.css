@@ -24,12 +24,13 @@
 }
 
 .bg_yellow_1 {
-  height: 446px;
+  height: 71%;
+  /* height: 446px; */
   width: 32% !important;
   position: absolute;
   right: 50%;
   left: 15%;
-  top: 35vh;
+  top: 25vh;
   z-index: -1;
   border: 5px solid #efac1a;
   border-radius: 10px;

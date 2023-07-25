@@ -188,7 +188,7 @@ const [keyword, setKeyword] = React.useState("")
 
           <div className="row">
             {resipesList.map((item) => (
-              <RecipesCard title={item?.title} image={item.recipePicture} id={item?.id} />
+              <RecipesCard title={item?.title} image={item?.recipePicture} id={item?.id} />
             ))}
           </div>
         </div>
