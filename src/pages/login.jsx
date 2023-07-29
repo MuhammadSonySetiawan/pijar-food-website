@@ -37,8 +37,10 @@ React.useEffect(() => {
         }).then(() => {
           localStorage.setItem("auth", "true");
           localStorage.setItem("token", result?.data?.token);
-
+          localStorage.setItem("id", result?.data?.data[0]?.id);
           dispatch(addAuth(result));
+          navigate("/profile");
+          // console.log(result?.data?.data[0]?.id);
         });
       })
       .catch((error) => {
@@ -79,21 +81,13 @@ React.useEffect(() => {
                     </label>
                     <input type="password" className="form-control" id="password" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                   </div>
-                  <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="termsConditions" name="termsConditions" />
-                    <label className="form-check-label" for="termsConditions">
-                      I agree to terms &amp; conditions
-                    </label>
-                  </div>
-                  <div className="d-grid">
+                  
+                  <div className="d-grid mt-5">
                     <button type="submit" className="btn" style={{ backgroundColor: "#efc81a", color: "white" }} onClick={hendleLogin}>
                       Log in
                     </button>
                   </div>
                   <p className="text-end fs-6 fw-medium mt-3">
-                    <a href="#" className="text-decoration-none text-black text-body-secondary">
-                      Forgot Password?
-                    </a>
                   </p>
                 </form>
               </div>

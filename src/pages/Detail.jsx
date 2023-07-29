@@ -34,7 +34,14 @@ function Detail() {
           </div>
         </nav>
         <div className="mt-2 d-flex justify-content-end align-items-center hide-desktop">
-          <button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <button
+            className="btn"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
             <img src="/images/menu.webp" width="35px" height="35px" />
           </button>
         </div>
@@ -47,17 +54,17 @@ function Detail() {
       {/* <!-- end of header --> */}
 
       {/* <!-- start of content --> */}
-      <section id="content" style={{marginTop:0}}>
+      <section id="content" style={{ marginTop: 0 }}>
         <h1 className="text-center text-primary">{currentRecipe?.title}</h1>
 
-          <div className="d-flex justify-content-center">
-            <img src={currentRecipe?.recipePicture} className="main-image" />
-          </div>
+        <div className="d-flex justify-content-center">
+          <img src={currentRecipe?.recipePicture} className="main-image" />
+        </div>
 
-        <div className="row mt-5">
+        <div className="row mt-5 container">
           <div className="col offset-md-2">
             <h2>Ingredients</h2>
-            <ul>{currentRecipe?.ingredients}</ul>
+            <ul className="">{currentRecipe?.ingredients}</ul>
           </div>
         </div>
 
@@ -65,14 +72,17 @@ function Detail() {
           <div className="col offset-md-2">
             <h2>Video Step</h2>
             <div className="btn btn-warning">
-              <a className="text-dark text-decoration-none" href={currentRecipe?.videoLink}>
+              <a
+                className="text-dark text-decoration-none"
+                href={currentRecipe?.videoLink}
+              >
                 Open video step
               </a>
             </div>
           </div>
         </div>
 
-        <div className="row mt-5">
+        {/* <div className="row mt-5">
           <div className="row mt-5">
             <div className="col offset-md-2">
               <textarea className="form-control" aria-label="With textarea" placeholder="Comment" style={{ height: "200px", width: "82%" }}></textarea>
@@ -81,7 +91,7 @@ function Detail() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
       {/* <!-- end of content --> */}
 
