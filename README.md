@@ -73,6 +73,12 @@ npm start
    <tr>
     <td>Add Recipe</td>
   </tr>
+  <tr>
+   <td><img width="800px" src="./screenshot/detail.png" border="0" alt="Profile" /> </td>
+ </tr>
+ <tr>
+     <td>Detail</td>
+  </tr>
  <tr>
    <td><img width="800px" src="./screenshot/profile.png" border="0" alt="Profile" /> </td>
  </tr>
