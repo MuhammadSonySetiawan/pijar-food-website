@@ -350,11 +350,10 @@ function Profile() {
                 </div>
               </div>
 
-              <div className="row mt-5">
+              <div className="d-flex flex-wrap mt-5">
                 {recipeList.length !== 0 ? (
                   recipeList.map((item) => (
                     <RecipesCardProfile
-                      id="profile"
                       // style={{ width: "500px" }}
                       title={item?.title}
                       image={item?.recipePicture}

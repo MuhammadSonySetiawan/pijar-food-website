@@ -5,7 +5,7 @@ function RecipesCardProfile(props) {
   const { title, image, id } = props;
   return (
     <>
-      <div className="col-md-3 col-xs-12 mb-4">
+      <div className="mb-4 ms-3" style={{}}>
         <Link
           className="text-decoration-none text-dark"
           to={`/detail/${title?.toLowerCase()?.split(" ").join("-")}?id=${id}`}

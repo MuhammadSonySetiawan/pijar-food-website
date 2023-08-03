@@ -63,7 +63,7 @@ React.useEffect(()=>{
     const token = localStorage.getItem("token");
     axios
       .post(
-        `https://pijar-food-sonny.onrender.com/recipes`,
+        `http://localhost:8000/recipes`,
         {
           recipePicture: recipePicture,
           title: title,
@@ -91,6 +91,7 @@ React.useEffect(()=>{
           text: error?.response?.data?.message ?? "Someting wrong in our app",
           icon: "error",
         });
+        console.log(error);
       });
   }else{
     Swal.fire({
@@ -164,7 +165,7 @@ React.useEffect(()=>{
               id="exampleFormControlTextarea1"
               placeholder="Ingredients"
               onChange={(e) =>
-                setIngredients(e.target.value.replace(/\n/g, <li />))
+                setIngredients(e.target.value)
               }
               rows="5"
               cols="40"

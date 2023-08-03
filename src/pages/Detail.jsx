@@ -74,7 +74,7 @@ function Detail() {
             <h2>Ingredients</h2>
             <ul className="">
               {currentRecipe?.ingredients
-                .split(",")
+                .split(".")
                 .filter((list) => list !== "")
                 .map((list) => (
                   <li>{list}</li>
