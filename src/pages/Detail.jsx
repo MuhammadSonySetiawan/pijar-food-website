@@ -61,13 +61,13 @@ function Detail() {
         <h1 className="text-center text-primary">{currentRecipe?.title}</h1>
 
         <div className="d-flex justify-content-center">
-          {/* <img src=`url(${currentRecipe?.recipePicture})` className="main-image" /> */}
-          <div
+          <img src={currentRecipe?.recipePicture} className="main-image" />
+          {/* <div
             className="main-image"
             style={{
               backgroundImage: `url(${currentRecipe?.recipePicture})`,
             }}
-          ></div>
+          ></div> */}
         </div>
 
         <div className="row mt-5 container">

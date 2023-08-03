@@ -6,9 +6,9 @@ import RecipesCardHome from "../components/RecipesCardHome";
 import Footer from "../components/Footer";
 
 import React from "react";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 function App() {
   const [resipesList, setRecipesList] = React.useState([]);
@@ -17,7 +17,6 @@ function App() {
 
   const popularRecipeId = resipesList.length - 1;
   const popularRecipe = resipesList[popularRecipeId];
-  console.log(popularRecipe);
 
   React.useEffect(() => {
     axios
@@ -36,7 +35,7 @@ function App() {
       })
       .then(
         (response) => setRecipesList(response?.data?.data),
-        // document.querySelector(".modal-backdrop").remove()
+        document.querySelector(".modal-backdrop").remove()
       );
   };
 
@@ -160,7 +159,8 @@ function App() {
 
                 {/* <!-- Start Modal --> */}
                 <div
-                  className="modal fade modal_recipe"
+                  className="modal fade modal_recipe" 
+                  // style={{zIndex:3}}
                   data-backdrop="false"
                   id="search-recipe"
                   tabindex="-1"
@@ -202,7 +202,7 @@ function App() {
                         />
                         {keyword.length > 0 ? (
                           <div style={{ height: "10%", width: "900px" }}>
-                            <div class="close row" >
+                            <div class="close row" id="searchClose">
                               {resipesList.map((item) => (
                                 <RecipesCardHome
                                   title={item?.title}
@@ -334,7 +334,6 @@ function App() {
           <h2 className="mb-5 subtitle">Popular Recipe</h2>
 
           <div className="row">
-            {console.log(resipesList)}
             {resipesList.map((item) => (
               <RecipesCardHome
                 title={item?.title}
