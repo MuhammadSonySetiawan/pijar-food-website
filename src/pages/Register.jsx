@@ -27,21 +27,21 @@ function Register() {
      if(email &&  name && phoneNumber && password){
        if (password == comfirmPassword && password.length >= 8) {
          axios
-           .post(`https://easy-pink-walrus-garb.cyclic.app/users`, {
+           .post(`https://pijar-food-sonny.onrender.com/users`, {
              email: email,
              fullName: name,
              phoneNumber: phoneNumber,
              password: password,
            })
            .then(() => {
-               Swal.fire({
-                 title: "Register Success",
-                 text: "Register success, redirect to app",
-                 icon: "success",
-               });
-               
-               <Loading />
-               navigate("/login");
+             Swal.fire({
+               title: "Register Success",
+               text: "Register success, redirect to app",
+               icon: "success",
+             });
+
+             <Loading />;
+             navigate("/login");
            })
            .catch((error) => {
              Swal.fire({

@@ -18,12 +18,14 @@ function Detail() {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/recipes/${id}`)
-      .then((response) => 
-    setCurrentRecipe(response?.data?.data[0])
-    )
+      .get(`https://pijar-food-sonny.onrender.com/recipes/${id}`)
+      .then((response) => setCurrentRecipe(response?.data?.data[0]));
+
+      if(document.querySelector(".modal-backdrop")) {
+        document.querySelector(".modal-backdrop").remove();
+      }
   }, []);
- console.log(currentRecipe)
+
   return (
     <div>
       {/* <!-- start of header --> */}
@@ -58,17 +60,30 @@ function Detail() {
         <h1 className="text-center text-primary">{currentRecipe?.title}</h1>
 
         <div className="d-flex justify-content-center">
-          <img src={currentRecipe?.recipePicture} className="main-image" />
+          {/* <img src=`url(${currentRecipe?.recipePicture})` className="main-image" /> */}
+          <div
+            className="main-image"
+            style={{
+              backgroundImage: `url(${currentRecipe?.recipePicture})`,
+            }}
+          ></div>
         </div>
 
         <div className="row mt-5 container">
           <div className="col offset-md-2">
             <h2>Ingredients</h2>
-            <ul className="">{currentRecipe?.ingredients}</ul>
+            <ul className="">
+              {currentRecipe?.ingredients
+                .split(",")
+                .filter((list) => list !== "")
+                .map((list) => (
+                  <li>{list}</li>
+                ))}
+            </ul>
           </div>
         </div>
 
-        <div className="row mt-5">
+        <div className="row mt-5 container">
           <div className="col offset-md-2">
             <h2>Video Step</h2>
             <div className="btn btn-warning">

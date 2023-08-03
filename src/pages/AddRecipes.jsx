@@ -44,12 +44,12 @@ React.useEffect(()=>{
 //   contentDisplay.textContent = textareaContent;
 // }
 
-const handleTextArea =()=>{
+// const handleTextArea =()=>{
   // const enteredText = textareaVariableName.val();
   // const numberOfLineBreaks = (enteredText.match(/\n/g) || []).length;
   // const characterCount = enteredText.length + numberOfLineBreaks;
   // const line =str.replace(/(?:\r\n|\r|\n)/g, "<br>");
-}
+// }
  
  const [recipePicture, setRecipePicture] = React.useState(null)
  const [title, setTitle] = React.useState(null)
@@ -59,21 +59,31 @@ const handleTextArea =()=>{
  console.log(ingredients);
  
  const hendleAddRecipes = () => {
+  if(recipePicture && title && ingredients && videoLink ){
+    const token = localStorage.getItem("token");
     axios
-      .post(`https://easy-pink-walrus-garb.cyclic.app/recipes`, {
-        recipePicture: recipePicture,
-        title: title,
-        ingredients: ingredients,
-        videoLink: videoLink,
-      })
+      .post(
+        `https://pijar-food-sonny.onrender.com/recipes`,
+        {
+          recipePicture: recipePicture,
+          title: title,
+          ingredients: ingredients,
+          videoLink: videoLink,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
       .then(() => {
         Swal.fire({
           title: "Add Recipes Success",
           text: "Add Recipes Success, redirect to app",
           icon: "success",
         });
-        navigate("/")
-        
+        navigate("/");
       })
       .catch((error) => {
         Swal.fire({
@@ -82,8 +92,15 @@ const handleTextArea =()=>{
           icon: "error",
         });
       });
-
+  }else{
+    Swal.fire({
+      title: "Add Recipes Error!",
+      text: "Please fill in completely",
+      icon: "error",
+    });
+  }
   };
+
 
   return (
     <div>
@@ -126,7 +143,7 @@ const handleTextArea =()=>{
               id="formFileDisabled"
               // style={{ height: "200px" }}
               // onChange={(e) => setRecipePicture(e.target.value.split(`\\`)[2])}
-              onChange={(e) => setRecipePicture(e.target.files)}
+              onChange={(e) => setRecipePicture(e.target.files[0])}
             />
           </div>
 
@@ -147,11 +164,12 @@ const handleTextArea =()=>{
               id="exampleFormControlTextarea1"
               placeholder="Ingredients"
               onChange={(e) =>
-                setIngredients(e.target.value.replace(/\n/g, <br />))
+                setIngredients(e.target.value.replace(/\n/g, <li />))
               }
               rows="5"
               cols="40"
             ></textarea>
+            <p>Use a comma (,) to separate each ingredient</p>
           </div>
 
           <div className="mb-3">
@@ -175,8 +193,6 @@ const handleTextArea =()=>{
           </div>
         </div>
       </section>
-
-      <p>{ingredients}</p>
 
       {/* <textarea id="myTextarea" rows="5" cols="40"></textarea>
       <button onclick={showTextareaContent}>Tampilkan Konten</button>

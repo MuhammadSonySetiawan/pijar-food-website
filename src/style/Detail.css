@@ -26,8 +26,8 @@ footer {
   height: 500px;
   width: 70%;
   margin-top: 40px;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover; 
+  object-position: center; 
   background-color: gray;
   border-radius: 10px;
 }

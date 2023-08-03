@@ -25,7 +25,7 @@ React.useEffect(() => {
   
   const hendleLogin = () => {
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, {
+      .post(`https://pijar-food-sonny.onrender.com/auth/login`, {
         email: email,
         password: password,
       })

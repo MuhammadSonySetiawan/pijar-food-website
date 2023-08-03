@@ -22,14 +22,17 @@ console.log(popularRecipe);
 
 
   React.useEffect(() =>{
-     axios.get(`${process.env.REACT_APP_BASE_URL}/recipes?page=1&limit=4&sortType=desc`)
-     .then((response) => setRecipesList(response?.data?.data));
+     axios
+       .get(
+         `https://pijar-food-sonny.onrender.com/recipes?page=1&limit=4&sortType=desc`
+       )
+       .then((response) => setRecipesList(response?.data?.data));
 
   }, [])
 
   const hendelSearch=() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/recipes`, {
+      .get(`https://pijar-food-sonny.onrender.com/recipes`, {
         params: {
           keyword,
           // sortColumn: "name",
@@ -159,10 +162,10 @@ console.log(popularRecipe);
                 /> */}
                 {/* <!-- Button trigger modal --> */}
                 <button
-                  type="button"
-                  className="btn btn-light border-secondary mb-3 h-10 w-100 mt-3 text-start text-secondary border-opacity-50 py-2"
+                  type="text"
+                  className="form-control from-control-lg border-secondary mb-3 h-10 w-100 mt-3 text-start text-secondary border-opacity-50 py-2"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
+                  data-bs-target="#search-recipe" 
                   style={{ cursor: "text", fontSize: "21px" }}
                 >
                   Search food
@@ -170,27 +173,20 @@ console.log(popularRecipe);
 
                 {/* <!-- Start Modal --> */}
                 <div
-                  className="modal fade"
-                  id="exampleModal"
+                  className="modal fade modal_recipe"
+                  id="search-recipe"
                   tabindex="-1"
-                  aria-labelledby="exampleModalLabel"
+                  aria-labelledby="search-recipe-Label"
                   aria-hidden="true"
                 >
                   <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                       <div className="modal-header d-flex justify-content-center">
-                        <h1 className="modal-title fs-5" id="exampleModalLabel">
-                          <input
-                            className="form-control form-control-lg"
-                            style={{ fontSize: "18px" }}
-                            placeholder="Search food"
-                            onChange={(e) => setKeyword(e.target.value)}
-                            onKeyDown={(e) => {
-                              if (e.keyCode === 13) {
-                                hendelSearch();
-                              }
-                            }}
-                          />
+                        <h1
+                          className="modal-title fs-5"
+                          id="search-recipe-Label"
+                        >
+                          Search Recipe
                         </h1>
                         <button
                           type="button"
@@ -200,29 +196,48 @@ console.log(popularRecipe);
                         ></button>
                       </div>
                       <div className="modal-body row">
-                        {keyword == 0 ? (
-                          <div className="text-center">
-                            Have not entered the name of the recipe
+                        <input
+                          className="form-control form-control-lg mb-3 "
+                          style={{
+                            fontSize: "18px",
+                            marginRight: "10px",
+                            marginLeft: "10px",
+                            width: "96%",
+                          }}
+                          placeholder="Search food"
+                          onChange={(e) => setKeyword(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.keyCode === 13) {
+                              hendelSearch();
+                            }
+                          }}
+                        />
+                        {keyword.length > 0 ? (
+                          <div style={{ height: "10%", width: "900px" }}>
+                            <div class="close row">
+                              {resipesList.map((item) => (
+                                <RecipesCard id='home'
+                                  title={item?.title}
+                                  image={item?.recipePicture}
+                                  id={item?.id}
+                                />
+                              ))}
+                            </div>
                           </div>
                         ) : (
-                          <>
-                            {resipesList == resipesList ? (
-                              <div class="close row">
-                                {resipesList.map((item) => (
-                                  <RecipesCard
-                                    title={item?.title}
-                                    image={item?.recipePicture}
-                                    id={item?.id}
-                                  />
-                                ))}
-                              </div>
-                            ) : (
-                              <>no recipe yet</>
-                            )}
-                          </>
+                          <div className="text-center">Recipe not found</div>
                         )}
                       </div>
-                      <div className="modal-footer"></div>
+                      <div className="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                          id="searchClose"
+                        >
+                          Close
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -331,6 +346,7 @@ console.log(popularRecipe);
           <h2 className="mb-5 subtitle">Popular Recipe</h2>
 
           <div className="row">
+            {console.log(resipesList)}
             {resipesList.map((item) => (
               <RecipesCard
                 title={item?.title}

@@ -33,7 +33,7 @@ footer {
 }
 
 .menu-background {
-  width: 100%;
+  width: 30vh;
   background-color: gray;
   height: 200px;
   border-radius: 10px;
@@ -63,5 +63,9 @@ footer {
   .hide-desktop {
     display: block;
     visibility: visible;
+  }
+
+  .menu-background {
+  width: 50%;
   }
 }
