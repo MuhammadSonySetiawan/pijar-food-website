@@ -22,34 +22,6 @@ React.useEffect(()=>{
 },[])
 
 
-// let str = `Geeks for Geeks is 
-//        a computer science portal 
-//        where people study computer science`;
-
-// let para = document.getElementById("para");
-
-// para.innerHTML = str;
-
-// function myFunc() {
-//   // Replace the \n with <br>
-//   str = str.split("\n").join("<br />");
-//   // Update the value of paragraph
-//   para.innerHTML = str;
-// }
-// const showTextareaContent =()=> {
-//   const textarea = document.getElementById("myTextarea");
-//   const contentDisplay = document.getElementById("contentDisplay");
-
-//   const textareaContent = textarea.value;
-//   contentDisplay.textContent = textareaContent;
-// }
-
-// const handleTextArea =()=>{
-  // const enteredText = textareaVariableName.val();
-  // const numberOfLineBreaks = (enteredText.match(/\n/g) || []).length;
-  // const characterCount = enteredText.length + numberOfLineBreaks;
-  // const line =str.replace(/(?:\r\n|\r|\n)/g, "<br>");
-// }
  
  const [recipePicture, setRecipePicture] = React.useState(null)
  const [title, setTitle] = React.useState(null)
@@ -63,7 +35,7 @@ React.useEffect(()=>{
     const token = localStorage.getItem("token");
     axios
       .post(
-        `http://localhost:8000/recipes`,
+        `https://pijar-food-sonny.onrender.com/recipes`,
         {
           recipePicture: recipePicture,
           title: title,
@@ -164,13 +136,13 @@ React.useEffect(()=>{
               style={{ height: "200px" }}
               id="exampleFormControlTextarea1"
               placeholder="Ingredients"
-              onChange={(e) =>
-                setIngredients(e.target.value)
-              }
+              onChange={(e) => setIngredients(e.target.value)}
               rows="5"
               cols="40"
             ></textarea>
-            <p>Use a comma (,) to separate each ingredient</p>
+            <p className="text-secondary">
+              Use a period (.) to separate each ingredient.
+            </p>
           </div>
 
           <div className="mb-3">
@@ -181,6 +153,7 @@ React.useEffect(()=>{
               placeholder="Video"
               onChange={(e) => setVideoLink(e.target.value)}
             />
+            <p className="text-secondary">Insert the video link.</p>
           </div>
 
           <div className="mt-3 d-flex justify-content-center">
