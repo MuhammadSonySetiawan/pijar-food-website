@@ -192,8 +192,8 @@ function Profile() {
             <div class="modal-dialog">
               <form class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">
-                    Modal title
+                  <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">
+                    Edit Profile
                   </h1>
                   <button
                     type="button"

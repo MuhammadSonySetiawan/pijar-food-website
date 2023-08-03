@@ -7,8 +7,9 @@ function RecipesCardProfile(props) {
     <>
       <div className="mb-4 ms-3" style={{}}>
         <Link
-          className="text-decoration-none text-dark"
+          className="text-decoration-none text-dark btn-close"
           to={`/detail/${title?.toLowerCase()?.split(" ").join("-")}?id=${id}`}
+          data-backdrop="false"
         >
           <div
             className="menu-background-profile"

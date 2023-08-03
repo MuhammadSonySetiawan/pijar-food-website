@@ -21,16 +21,17 @@ function Detail() {
       .get(`https://pijar-food-sonny.onrender.com/recipes/${id}`)
       .then((response) => setCurrentRecipe(response?.data?.data[0]));
 
-      if(document.querySelector(".modal-backdrop")) {
-        document.querySelector(".modal-backdrop").remove();
-      }
+    if(document.querySelector(".modal-backdrop")) {
+      document.querySelector('.modal-backdrop').remove();
+      
+    }
   }, []);
 
   return (
     <div>
       {/* <!-- start of header --> */}
       <header>
-        <nav className="container mt-4">
+        <nav className="container mt-4 ">
           <div className="row animate__animated animate__fadeInDown">
             <Navbar />
           </div>

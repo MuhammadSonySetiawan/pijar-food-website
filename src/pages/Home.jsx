@@ -5,41 +5,40 @@ import Navbar from "../components/Navbar";
 import RecipesCardHome from "../components/RecipesCardHome";
 import Footer from "../components/Footer";
 
-import React from 'react';
+import React from "react";
 
-import { Link } from "react-router-dom"
-// import RecipesList from "../menu.json"
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function App() {
-const [resipesList, setRecipesList] = React.useState([])
-const [keyword, setKeyword] = React.useState("")
-const newRecipe = resipesList[0];
+  const [resipesList, setRecipesList] = React.useState([]);
+  const [keyword, setKeyword] = React.useState("");
+  const newRecipe = resipesList[0];
 
-const popularRecipeId = resipesList.length - 1
-const popularRecipe = resipesList[popularRecipeId];
-console.log(popularRecipe);
+  const popularRecipeId = resipesList.length - 1;
+  const popularRecipe = resipesList[popularRecipeId];
+  console.log(popularRecipe);
 
+  React.useEffect(() => {
+    axios
+      .get(
+        `https://pijar-food-sonny.onrender.com/recipes?page=1&limit=4&sortType=desc`
+      )
+      .then((response) => setRecipesList(response?.data?.data));
+  }, []);
 
-  React.useEffect(() =>{
-     axios
-       .get(
-         `https://pijar-food-sonny.onrender.com/recipes?page=1&limit=4&sortType=desc`
-       )
-       .then((response) => setRecipesList(response?.data?.data));
-
-  }, [])
-
-  const hendelSearch=() => {
+  const hendelSearch = () => {
     axios
       .get(`https://pijar-food-sonny.onrender.com/recipes`, {
         params: {
           keyword,
-          // sortColumn: "name",
         },
       })
-      .then((response) => setRecipesList(response?.data?.data));
-  }
+      .then(
+        (response) => setRecipesList(response?.data?.data),
+        // document.querySelector(".modal-backdrop").remove()
+      );
+  };
 
   return (
     <div className="App">
@@ -148,18 +147,6 @@ console.log(popularRecipe);
               </h1>
 
               <div className="mb-3 w-50 mt-3">
-                {/* <input
-                  className="form-control form-control-lg"
-                  placeholder="search restaurant, food"
-                  onChange={(e) => setKeyword(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.keyCode === 13) {
-                      window.location.href = "#popular-recipe";
-
-                      hendelSearch();
-                    }
-                  }}
-                /> */}
                 {/* <!-- Button trigger modal --> */}
                 <button
                   type="text"
@@ -174,6 +161,7 @@ console.log(popularRecipe);
                 {/* <!-- Start Modal --> */}
                 <div
                   className="modal fade modal_recipe"
+                  data-backdrop="false"
                   id="search-recipe"
                   tabindex="-1"
                   aria-labelledby="search-recipe-Label"
@@ -214,7 +202,7 @@ console.log(popularRecipe);
                         />
                         {keyword.length > 0 ? (
                           <div style={{ height: "10%", width: "900px" }}>
-                            <div class="close row">
+                            <div class="close row" >
                               {resipesList.map((item) => (
                                 <RecipesCardHome
                                   title={item?.title}
