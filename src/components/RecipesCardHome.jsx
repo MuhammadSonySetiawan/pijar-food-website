@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function RecipesCard(props) {
+function RecipesCardHome(props) {
     const {title, image, id} = props
     return (
       <>
@@ -14,7 +14,7 @@ function RecipesCard(props) {
               .join("-")}?id=${id}`}
           >
             <div
-              className="menu-background"
+              className="menu-background-home"
               style={{ backgroundImage: `url(${image})` }}
             >
               <h3 style={{ textShadow: "1px 3px 7px rgba(230,255,0,0.93)" }}>
@@ -27,4 +27,4 @@ function RecipesCard(props) {
     );
 }
   
-export default RecipesCard
+export default RecipesCardHome;

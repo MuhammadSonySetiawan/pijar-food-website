@@ -2,7 +2,7 @@ import "../style/Home.css";
 
 import NavbarPhone from "../components/NavbarPhone";
 import Navbar from "../components/Navbar";
-import RecipesCard from "../components/RecipesCard";
+import RecipesCardHome from "../components/RecipesCardHome";
 import Footer from "../components/Footer";
 
 import React from 'react';
@@ -165,7 +165,7 @@ console.log(popularRecipe);
                   type="text"
                   className="form-control from-control-lg border-secondary mb-3 h-10 w-100 mt-3 text-start text-secondary border-opacity-50 py-2"
                   data-bs-toggle="modal"
-                  data-bs-target="#search-recipe" 
+                  data-bs-target="#search-recipe"
                   style={{ cursor: "text", fontSize: "21px" }}
                 >
                   Search food
@@ -216,7 +216,7 @@ console.log(popularRecipe);
                           <div style={{ height: "10%", width: "900px" }}>
                             <div class="close row">
                               {resipesList.map((item) => (
-                                <RecipesCard id='home'
+                                <RecipesCardHome
                                   title={item?.title}
                                   image={item?.recipePicture}
                                   id={item?.id}
@@ -348,7 +348,7 @@ console.log(popularRecipe);
           <div className="row">
             {console.log(resipesList)}
             {resipesList.map((item) => (
-              <RecipesCard
+              <RecipesCardHome
                 title={item?.title}
                 image={item?.recipePicture}
                 id={item?.id}

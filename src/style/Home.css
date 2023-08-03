@@ -64,10 +64,10 @@ footer {
   z-index: 1;
 }
 
-.menu-background {
+.menu-background-home {
   width: 100%;
   background-color: gray;
-  height: 400px;
+  height: 300px;
   border-radius: 10px;
   cursor: pointer;
   background-size: cover;

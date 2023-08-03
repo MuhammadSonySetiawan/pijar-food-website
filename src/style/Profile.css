@@ -32,7 +32,7 @@ footer {
   border-radius: 10px;
 }
 
-.menu-background {
+.menu-background-profile {
   width: 30vh;
   background-color: gray;
   height: 200px;
@@ -65,7 +65,7 @@ footer {
     visibility: visible;
   }
 
-  .menu-background {
+  .menu-background-profile {
   width: 50%;
   }
 }

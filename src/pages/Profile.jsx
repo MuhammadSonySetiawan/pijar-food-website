@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/Profile.css";
 
-import RecipesCard from "../components/RecipesCard";
+import RecipesCardProfile from "../components/RecipeCardProfile";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import NavbarPhone from "../components/NavbarPhone";
@@ -353,7 +353,8 @@ function Profile() {
               <div className="row mt-5">
                 {recipeList.length !== 0 ? (
                   recipeList.map((item) => (
-                    <RecipesCard id="profile"
+                    <RecipesCardProfile
+                      id="profile"
                       // style={{ width: "500px" }}
                       title={item?.title}
                       image={item?.recipePicture}
