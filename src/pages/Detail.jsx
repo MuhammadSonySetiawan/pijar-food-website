@@ -23,7 +23,6 @@ function Detail() {
 
     if(document.querySelector(".modal-backdrop")) {
       document.querySelector('.modal-backdrop').remove();
-      
     }
   }, []);
 

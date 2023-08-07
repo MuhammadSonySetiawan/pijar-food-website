@@ -14,6 +14,7 @@ function Login() {
   
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
   
   const state = useSelector((reducer) => reducer.auth);
 
@@ -24,6 +25,7 @@ React.useEffect(() => {
 }, [state])
   
   const hendleLogin = () => {
+    setIsLoading(true);
     axios
       .post(`https://pijar-food-sonny.onrender.com/auth/login`, {
         email: email,
@@ -49,7 +51,10 @@ React.useEffect(() => {
           text: error?.response?.data?.message ?? "Someting wrong in our app",
           icon: "error",
         });
-      });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
   }
 
     return (
@@ -83,8 +88,8 @@ React.useEffect(() => {
                   </div>
                   
                   <div className="d-grid mt-5">
-                    <button type="submit" className="btn" style={{ backgroundColor: "#efc81a", color: "white" }} onClick={hendleLogin}>
-                      Log in
+                    <button type="submit" className="btn" style={{ backgroundColor: "#efc81a", color: "white" }} onClick={hendleLogin} disabled={isLoading}>
+                      {isLoading === true ? "Loading..." : "Log in"}
                     </button>
                   </div>
                   <p className="text-end fs-6 fw-medium mt-3">

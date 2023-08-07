@@ -14,6 +14,8 @@ function Register() {
   const [password, setPassword] = React.useState(null);
   const [comfirmPassword, setComfirmPassword] = React.useState("");
   const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = React.useState(false);
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -50,7 +52,11 @@ function Register() {
                  error?.response?.data?.message ?? "Someting wrong in our app",
                icon: "error",
              });
+           })
+           .finally(() => {
+             setIsLoading(false)
            });
+           
        } else if (password.length < 8) {
          Swal.fire({
            title: "Error!",
@@ -176,6 +182,7 @@ function Register() {
                       onClick={hendleRegister}
                     >
                       Register Account
+                      {isLoading === true ? "Loading..." : "Register Account"}
                     </button>
                   </div>
                 </form>

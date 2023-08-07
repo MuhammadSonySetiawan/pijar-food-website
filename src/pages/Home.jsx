@@ -18,6 +18,8 @@ function App() {
   const popularRecipeId = resipesList.length - 1;
   const popularRecipe = resipesList[popularRecipeId];
 
+  console.log(window)
+
   React.useEffect(() => {
     axios
       .get(
@@ -178,7 +180,7 @@ function App() {
                         </h1>
                         <button
                           type="button"
-                          class="btn-close"
+                          className="btn-close"
                           data-bs-dismiss="modal"
                           aria-label="Close"
                         ></button>
@@ -202,7 +204,7 @@ function App() {
                         />
                         {keyword.length > 0 ? (
                           <div style={{ height: "10%", width: "900px" }}>
-                            <div class="close row" id="searchClose">
+                            <div class="close row" >
                               {resipesList.map((item) => (
                                 <RecipesCardHome
                                   title={item?.title}

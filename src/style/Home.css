@@ -64,6 +64,19 @@ footer {
   z-index: 1;
 }
 
+.menu-background-search {
+  width: 100%;
+  background-color: gray;
+  height: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: end;
+  padding: 20px;
+}
+
 .menu-background-home {
   width: 100%;
   background-color: gray;
