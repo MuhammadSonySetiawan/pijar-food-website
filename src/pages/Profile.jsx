@@ -328,7 +328,7 @@ function Profile() {
         <section id="popular-recipe">
           <div className="container d-flex bd-highlight mb-3">
             <div className="menu-recipes mt-4">
-              <div className="row animate__animated animate__fadeInDown mb-4">
+              <div className="row animate__animated animate__fadeInDown mb-1">
                 <div className="col-12">
                   <div>
                     <a className="text-primary fw-bold" href="#">
@@ -350,7 +350,7 @@ function Profile() {
                 </div>
               </div>
 
-              <div className="d-flex flex-wrap mt-5">
+              <div className="d-flex flex-wrap mt-1">
                 {recipeList.length !== 0 ? (
                   recipeList.map((item) => (
                     <RecipesCardProfile
