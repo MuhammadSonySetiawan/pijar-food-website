@@ -49,24 +49,13 @@ npm start
   <tr>
    <td>Home</td>
   </tr>
+  <tr>
+  <td><img width="800px" src="./screenshot/search.png" border="0" alt="Search-recipe" /> </td>
+ </tr>
+  <tr>
+   <td>Search Recipe</td>
+  </tr>
  <tr>
-  <td><img width="800px" src="./screenshot/Home-populer-for-you.png" border="0" alt="Home Popular For You" /> </td>
- </tr>
-  <tr>
-   <td>Home - Popular For You</td>
-  </tr>
-  <tr>
-  <td><img width="800px" src="./screenshot/Home-new-recipe.png" border="0" alt="Home New Recipe" /> </td>
- </tr>
-  <tr>
-   <td>Home - New Recipe</td>
-  </tr>
-  <tr>
-  <td><img width="800px" src="./screenshot/Home-popular-recipe.png" border="0" alt="Home Popular Recipe" /> </td>
- </tr>
-  <tr>
-   <td>Home - Popular Recipe</td>
-  </tr>
   <tr>
     <td><img width="800px" src="./screenshot/edd-recipe.png" border="0" alt="Add-recipe" /> </td>
   </tr>
@@ -84,6 +73,12 @@ npm start
  </tr>
  <tr>
      <td>Profile</td>
+  </tr>
+  <tr>
+   <td><img width="800px" src="./screenshot/ediProfile.png" border="0" alt="Edit-profile" /> </td>
+ </tr>
+ <tr>
+     <td>Edit Profile</td>
   </tr>
 </table>
 
