@@ -12,7 +12,7 @@ npm i
 npm start
 ```
 
-## Fitures Aplikasi Pijar Food
+## Fitures Website Pijar Food
 - Various cooking tutorials
 - Equipped with video tutorials
 - Responsive website for both desktop and mobile devices
@@ -84,8 +84,8 @@ npm start
 
 ## Related Project
 
-- [`Frontend Recipe Food`](https://github.com/MuhammadSonySetiawan/pijar-food-react)
+- [`Frontend Pijar Food`](https://github.com/MuhammadSonySetiawan/pijar-food-react)
 
-- [`Backend Recipe Food`](https://github.com/MuhammadSonySetiawan/pijar-food-be)
+- [`Backend Pijar Food`](https://github.com/MuhammadSonySetiawan/pijar-food-be)
 
-- [`Demo Recipe Food`](https://pijar-food-react-nine.vercel.app/)
+- [`Demo Pijar Food`](https://pijar-food-react-nine.vercel.app/)
