@@ -1,7 +1,7 @@
 <img width="840" src="./screenshot/allDevice.png" border="0" alt="Landing Page" />
 <br>
 
-# Website Pijar Food FE
+# Website Pijar Food
 The Pijar Food FE is a tutorial application for creating various types of food, combined with video tutorials and written ingredients. This application uses the PostgreSQL database, Express JS for backend development, and utilizes the React JS library and Bootstrap 5 for frontend development.
 
 ## Instal
@@ -12,7 +12,7 @@ npm i
 npm start
 ```
 
-## Fitures Aplikasi Pijar Food FE
+## Fitures Aplikasi Pijar Food
 - Various cooking tutorials
 - Equipped with video tutorials
 - Responsive website for both desktop and mobile devices
