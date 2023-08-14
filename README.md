@@ -88,4 +88,4 @@ npm start
 
 - [`Backend Pijar Food`](https://github.com/MuhammadSonySetiawan/pijar-food-be)
 
-- [`Demo Pijar Food`](https://pijar-food-react-nine.vercel.app/)
+- [`Demo Pijar Food`](https://pijar-food-website.vercel.app/)
