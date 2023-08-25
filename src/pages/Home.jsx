@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 function App() {
   const [resipesList, setRecipesList] = React.useState([]);
   const [keyword, setKeyword] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const newRecipe = resipesList[0];
 
   const popularRecipeId = resipesList.length - 1;
@@ -21,11 +23,16 @@ function App() {
   console.log(window)
 
   React.useEffect(() => {
+    setIsLoading(true);
     axios
       .get(
         `https://pijar-food-sonny.onrender.com/recipes?page=1&limit=4&sortType=desc`
       )
-      .then((response) => setRecipesList(response?.data?.data));
+      .then((response) => setRecipesList(response?.data?.data))
+      .catch((error) => setRecipesList(error?.data?.data))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   const hendelSearch = () => {

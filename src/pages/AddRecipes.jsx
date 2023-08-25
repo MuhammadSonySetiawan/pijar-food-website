@@ -10,70 +10,79 @@ import { useNavigate } from "react-router-dom";
 
 function AddRecipes() {
   const navigate = useNavigate();
-React.useEffect(()=>{
-  if (!localStorage.getItem("auth")) {
-    Swal.fire({
-      title: "Oops...",
-      text: "ou haven't logged in yet!",
-      icon: "warning",
-    });
-    navigate("/login");
-  }
-},[])
-
-
- 
- const [recipePicture, setRecipePicture] = React.useState(null)
- const [title, setTitle] = React.useState(null)
- const [ingredients, setIngredients] = React.useState()
- const [videoLink, setVideoLink] = React.useState(null)
-
- console.log(ingredients);
- 
- const hendleAddRecipes = () => {
-  if(recipePicture && title && ingredients && videoLink ){
-    const token = localStorage.getItem("token");
-    axios
-      .post(
-        `https://pijar-food-sonny.onrender.com/recipes`,
-        {
-          recipePicture: recipePicture,
-          title: title,
-          ingredients: ingredients,
-          videoLink: videoLink,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      .then(() => {
-        Swal.fire({
-          title: "Add Recipes Success",
-          text: "Add Recipes Success, redirect to app",
-          icon: "success",
-        });
-        navigate("/");
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: "Add Recipes Error!",
-          text: error?.response?.data?.message ?? "Someting wrong in our app",
-          icon: "error",
-        });
-        console.log(error);
+  React.useEffect(() => {
+    if (!localStorage.getItem("auth")) {
+      Swal.fire({
+        title: "Oops...",
+        text: "ou haven't logged in yet!",
+        icon: "warning",
       });
-  }else{
-    Swal.fire({
-      title: "Add Recipes Error!",
-      text: "Please fill in completely",
-      icon: "error",
-    });
-  }
+      navigate("/login");
+    }
+  }, []);
+
+  const [recipePicture, setRecipePicture] = React.useState(null);
+  const [title, setTitle] = React.useState(null);
+  const [ingredients, setIngredients] = React.useState();
+  const [videoLink, setVideoLink] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [nameCategory, setNameCategory] = React.useState("");
+  console.log(nameCategory);
+
+  const handleCategory = (e) => {
+    setNameCategory(e.target.value);
   };
 
+  const hendleAddRecipes = () => {
+    if (recipePicture && title && ingredients && videoLink) {
+      setIsLoading(true);
+      const token = localStorage.getItem("token");
+      axios
+        .post(
+          `https://pijar-food-sonny.onrender.com/recipes`,
+          {
+            recipePicture: recipePicture,
+            title: title,
+            ingredients: ingredients,
+            videoLink: videoLink,
+            category: nameCategory,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          Swal.fire({
+            title: "Add Recipes Success",
+            text: "Add Recipes Success, redirect to app",
+            icon: "success",
+          });
+          console.log(res);
+
+          navigate("/");
+        })
+        .catch((error) => {
+          Swal.fire({
+            title: "Add Recipes Error!",
+            text: error?.response?.data?.message ?? "Someting wrong in our app",
+            icon: "error",
+          });
+          console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    } else {
+      Swal.fire({
+        title: "Add Recipes Error!",
+        text: "Please fill in completely",
+        icon: "error",
+      });
+    }
+  };
 
   return (
     <div>
@@ -156,13 +165,32 @@ React.useEffect(()=>{
             <p className="text-secondary">Insert the video link.</p>
           </div>
 
+          <div>
+            <select
+              value={nameCategory}
+              onChange={handleCategory}
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>Open this select menu</option>
+              <option value="Chicken">Chicken</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Ice Cream">Ice Cream</option>
+              <option value="Mie">Mie</option>
+              <option value="Vegeterian">Vegeterian</option>
+              <option value="Seafood">Seafood</option>
+              <option value="Meat">Meat</option>
+              <option value="Other Food">Other Food</option>
+            </select>
+          </div>
+
           <div className="mt-3 d-flex justify-content-center">
             <button
               className="btn btn-warning"
               style={{ width: "150px" }}
               onClick={hendleAddRecipes}
             >
-              Post
+              {isLoading === true ? "Loading..." : "Post"}
             </button>
           </div>
         </div>

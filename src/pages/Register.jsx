@@ -15,7 +15,7 @@ function Register() {
   const [comfirmPassword, setComfirmPassword] = React.useState("");
   const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = React.useState(false);
-
+ 
 
   useEffect(() => {
     const timer = setTimeout(() => {
