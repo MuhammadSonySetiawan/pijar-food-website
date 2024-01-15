@@ -7,7 +7,7 @@ The Pijar Food FE is a tutorial application for creating various types of food, 
 ## Instal
 The Food Recipe website can run locally on your machine. Please download this repository and open it using Visual Studio Code. Then, execute the following commands in the terminal.
 ```sh
-cd food-recipe-fe-react
+cd food-recipe-fe
 npm i
 npm start
 ```
