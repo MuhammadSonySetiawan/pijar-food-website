@@ -1,25 +1,32 @@
 import "../style/Detail.css";
 
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { useLocation } from "react-router";
-
 import { Link } from "react-router-dom";
+import YouTube from "react-youtube";
+
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import NavbarPhone from "../components/NavbarPhone";
-
-import axios from "axios";
-
+import YoutobeVideo from "../components/Youtube" 
 function Detail() {
   const location = useLocation();
   const [currentRecipe, setCurrentRecipe] = React.useState(null);
+  const [videoId, setVidioId] = useState()
   const id = location?.search?.split("?id=")[1];
+  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
+    setIsLoading(true);
     window.scrollTo(0, 0);
     axios
       .get(`https://pijar-food-sonny.onrender.com/recipes/${id}`)
-      .then((response) => setCurrentRecipe(response?.data?.data[0]));
+      .then((response) => setCurrentRecipe(response?.data?.data[0]))
+      .catch((error)=> console.log(error))
+      .finally(() => {
+        setIsLoading(false);
+      });
 
     if(document.querySelector(".modal-backdrop")) {
       document.querySelector('.modal-backdrop').remove();
@@ -28,8 +35,14 @@ function Detail() {
 
   return (
     <div>
-      {/* <!-- start of header --> */}
-      <header>
+    {isLoading ? (
+        <div className="countainer">
+          {/* <Loading /> */}
+          <span class="loader"></span>
+        </div>
+      ) : (
+        <>
+          <header>
         <nav className="container mt-4 ">
           <div className="row animate__animated animate__fadeInDown">
             <Navbar />
@@ -86,13 +99,9 @@ function Detail() {
         <div className="row mt-5 container">
           <div className="col offset-md-2">
             <h2>Video Step</h2>
-            <div className="btn btn-warning">
-              <a
-                className="text-dark text-decoration-none"
-                href={currentRecipe?.videoLink}
-              >
-                Open video step
-              </a>
+            <div className="bgVideo p-2 rounded ">
+              <YoutobeVideo link={currentRecipe?.videoLink.split("/")[3]}/>
+              
             </div>
           </div>
         </div>
@@ -113,6 +122,9 @@ function Detail() {
       {/* <!-- start of footer --> */}
       <Footer />
       {/* <!-- end of footer --> */}
+        </>)}
+      {/* <!-- start of header --> */}
+      
     </div>
   );
 }
