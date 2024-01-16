@@ -180,26 +180,25 @@ function Profile() {
 
           {/* <!-- Modal --> */}
           <div
-            class="modal fade"
+            className="modal fade"
             id="exampleModal"
-            tabindex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog">
-              <form class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">
+            <div className="modal-dialog">
+              <form className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5 text-warning" id="exampleModalLabel">
                     Edit Profile
                   </h1>
                   <button
                     type="button"
-                    class="btn-close"
+                    className="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   ></button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                   {/* star form edit */}
                   <div className="mb-3">
                     <div className="d-flex flex-column justify-content-center">
@@ -295,17 +294,17 @@ function Profile() {
                   </div>
                   {/*end form edit */}
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
                     Close
                   </button>
                   <button
                     type="button"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     onClick={handleEditProfile}
                   >
                     Save changes
@@ -349,9 +348,8 @@ function Profile() {
 
               <div className="d-flex flex-wrap mt-1">
                 {recipeList.length !== 0 ? (
-                  recipeList.map((item) => (
-                    <RecipesCardProfile
-                      // style={{ width: "500px" }}
+                  recipeList.map((item, key) => (
+                    <RecipesCardProfile key={key}
                       title={item?.title}
                       image={item?.recipePicture}
                       id={item?.id}

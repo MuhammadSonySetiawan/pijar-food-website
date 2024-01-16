@@ -38,7 +38,7 @@ function Detail() {
     {isLoading ? (
         <div className="countainer">
           {/* <Loading /> */}
-          <span class="loader"></span>
+          <span className="loader"></span>
         </div>
       ) : (
         <>
@@ -89,8 +89,8 @@ function Detail() {
               {currentRecipe?.ingredients
                 .split(".")
                 .filter((list) => list !== "")
-                .map((list) => (
-                  <li>{list}</li>
+                .map((list, key) => (
+                  <li key={key}>{list}</li>
                 ))}
             </ul>
           </div>

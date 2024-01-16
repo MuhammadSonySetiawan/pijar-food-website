@@ -166,7 +166,7 @@ function AddRecipes() {
             <select
               value={nameCategory}
               onChange={handleCategory}
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
             >
               <option selected>Open this select menu</option>

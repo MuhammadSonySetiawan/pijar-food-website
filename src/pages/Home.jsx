@@ -73,7 +73,7 @@ function App() {
       {isLoading ? (
         <div className="countainer">
           {/* <Loading /> */}
-          <span class="loader"></span>
+          <span className="loader"></span>
         </div>
       ) : (
         <>
@@ -199,10 +199,8 @@ function App() {
                     {/* <!-- Start Modal --> */}
                     <div
                       className="modal fade modal_recipe"
-                      // style={{zIndex:3}}
                       data-backdrop="false"
                       id="search-recipe"
-                      tabindex="-1"
                       aria-labelledby="search-recipe-Label"
                       aria-hidden="true"
                     >
@@ -241,9 +239,9 @@ function App() {
                             />
                             {keyword.length > 0 ? (
                               <div style={{ height: "10%", width: "900px" }}>
-                                <div class="close row">
-                                  {resipesList.map((item) => (
-                                    <RecipesCardHome
+                                <div className="close row">
+                                  {resipesList.map((item, key) => (
+                                    <RecipesCardHome key={key}
                                       title={item?.title}
                                       image={item?.recipePicture}
                                       id={item?.id}
@@ -260,7 +258,7 @@ function App() {
                           <div className="modal-footer">
                             <button
                               type="button"
-                              class="btn btn-secondary"
+                              className="btn btn-secondary"
                               data-bs-dismiss="modal"
                               id="searchClose"
                             >
@@ -377,8 +375,8 @@ function App() {
               <h2 className="mb-5 subtitle">Popular Recipe</h2>
 
               <div className="row">
-                {data.map((item) => (
-                  <RecipesCardHome
+                {data.map((item, key) => (
+                  <RecipesCardHome key={key}
                     title={item?.title}
                     image={item?.recipePicture}
                     id={item?.id}
