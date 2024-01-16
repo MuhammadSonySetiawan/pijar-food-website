@@ -6,6 +6,7 @@ function Navbar() {
     <div>
       <div className="col-10">
         <div className="w50">
+          <img src="/images/logoNav.png" alt="" style={{width: "5rem", marginRight: "5rem"}}/>
           <Link className="text-primary fw-bold text-decoration-none" style={{ zIndex: 4 }} to="/">
             Home
           </Link>

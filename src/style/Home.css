@@ -24,18 +24,9 @@
 }
 
 .bg_yellow_1 {
-  /* height:auto; */
   width:auto;
-  /* height: 50vh; */
-  /* width: 32% !important; */
-  /* position: absolute; */
-  /* right: 50%;
-  left: 15%;
-  top: 25vh; */
-  /* z-index: -1; */
   border: 5px solid #efac1a;
   border-radius: 10px;
-  
 }
 
 .bg_yellow_1 img{

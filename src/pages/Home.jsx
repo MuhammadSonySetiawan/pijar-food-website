@@ -119,7 +119,9 @@ function App() {
                 </div>
               </div>
             </nav>
-            <div className="mt-2 d-flex justify-content-end align-items-center hide-desktop">
+            <div className="hide-desktop"></div>
+            <div className="mt-2 d-flex justify-content-between align-items-center hide-desktop">
+              <img src="/images/logoNav.png" alt="" style={{ width: "3.5rem", marginLeft: "1rem" }} />
               <button
                 className="btn"
                 type="button"
@@ -241,7 +243,8 @@ function App() {
                               <div style={{ height: "10%", width: "900px" }}>
                                 <div className="close row">
                                   {resipesList.map((item, key) => (
-                                    <RecipesCardHome key={key}
+                                    <RecipesCardHome
+                                      key={key}
                                       title={item?.title}
                                       image={item?.recipePicture}
                                       id={item?.id}
@@ -295,16 +298,15 @@ function App() {
                 style={{ marginTop: "100px" }}
               >
                 <div className="col-md-6 col-xs-12 d-flex justify-content-center">
-                <div className="bg_yellow_1">
-                  <img
-                    className="popular-image "
-                    src={popularRecipe?.recipePicture}
-                    width="92%"
-                    // height="500px"
-                    style={{ zIndex: 1, borderRadius: "5px" }}
-                  />
-
-                </div>
+                  <div className="bg_yellow_1">
+                    <img
+                      className="popular-image "
+                      src={popularRecipe?.recipePicture}
+                      width="92%"
+                      // height="500px"
+                      style={{ zIndex: 1, borderRadius: "5px" }}
+                    />
+                  </div>
                 </div>
 
                 <div className="col-md-5 mt-2 col-xs-12">
@@ -376,7 +378,8 @@ function App() {
 
               <div className="row">
                 {data.map((item, key) => (
-                  <RecipesCardHome key={key}
+                  <RecipesCardHome
+                    key={key}
                     title={item?.title}
                     image={item?.recipePicture}
                     id={item?.id}
