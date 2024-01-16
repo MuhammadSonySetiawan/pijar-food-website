@@ -2,9 +2,6 @@ import React from 'react'
 
 function Pagination({ totalPages, currentPage, onPageChange }) {
   const pageNumbers = [];
-  console.log(totalPages);
-  //   console.log(currentPage)
-  //   console.log(onPageChange);
 
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(

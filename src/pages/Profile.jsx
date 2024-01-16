@@ -15,20 +15,17 @@ import { addAuth } from "../reducers/auth";
 function Profile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const state = useSelector((reducer) => reducer.auth);
 
   const [profile, setProfile] = React.useState(null);
   const [recipeList, setRecipeList] = React.useState([]);
-
   const [name, setName] = React.useState(null);
   const [email, setEmail] = React.useState(null);
   const [phoneNumber, setPhoneNumber] = React.useState(null);
   const [password, setPassword] = React.useState(null);
-
   const [photo, setPhoto] = React.useState(null);
 
-  // console.log(idUser);
-  const state = useSelector((reducer) => reducer.auth);
-  // console.log(e)
+ 
   React.useEffect(() => {
     if (!localStorage.getItem("auth")) {
       Swal.fire({

@@ -21,8 +21,6 @@ function App() {
   const popularRecipeId = resipesList.length - 1;
   const popularRecipe = resipesList[popularRecipeId];
 
-  console.log();
-
   React.useEffect(() => {
     setIsLoading(true);
     axios
@@ -58,7 +56,6 @@ function App() {
       const response = await axios.get(
         `https://pijar-food-sonny.onrender.com/recipes?page=${currentPage}`
       );
-      console.log(response.data.pages.total);
       setData(response.data.data);
       setCurrentPage(response.data.pages.carrent);
       setTotalPages(response.data.pages.total);
@@ -291,7 +288,7 @@ function App() {
             <div className="bg_yellow"></div>
           </header>
           {/* <!-- end of header --> */}
-          {/* <!-- start of new recipe --> */}
+          {/* <!-- start of Popular For You! --> */}
           <section id="new-recipe">
             <div className="container">
               <h2 className="mb-2 subtitle">Popular For You!</h2>
@@ -299,15 +296,17 @@ function App() {
                 className="row align-items-center"
                 style={{ marginTop: "100px" }}
               >
-                <div className="bg_yellow_1"></div>
-                <div className="col-md-6 col-xs-12">
+                <div className="col-md-6 col-xs-12 d-flex justify-content-center">
+                <div className="bg_yellow_1">
                   <img
-                    className="popular-image"
+                    className="popular-image "
                     src={popularRecipe?.recipePicture}
                     width="92%"
-                    height="500px"
+                    // height="500px"
                     style={{ zIndex: 1, borderRadius: "5px" }}
                   />
+
+                </div>
                 </div>
 
                 <div className="col-md-5 mt-2 col-xs-12">
@@ -387,7 +386,6 @@ function App() {
                 ))}
               </div>
               <div className="d-flex justify-content-center">
-                
                 <div>
                   {/* Render pagination component */}
                   <Pagination

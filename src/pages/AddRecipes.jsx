@@ -27,7 +27,6 @@ function AddRecipes() {
   const [videoLink, setVideoLink] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
   const [nameCategory, setNameCategory] = React.useState("");
-  console.log(nameCategory);
 
   const handleCategory = (e) => {
     setNameCategory(e.target.value);
@@ -60,7 +59,6 @@ function AddRecipes() {
             text: "Add Recipes Success, redirect to app",
             icon: "success",
           });
-          console.log(res);
 
           navigate("/");
         })
@@ -70,7 +68,6 @@ function AddRecipes() {
             text: error?.response?.data?.message ?? "Someting wrong in our app",
             icon: "error",
           });
-          console.log(error);
         })
         .finally(() => {
           setIsLoading(false);
