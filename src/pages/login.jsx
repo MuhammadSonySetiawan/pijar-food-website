@@ -60,12 +60,20 @@ React.useEffect(() => {
     return (
       <div>
         <div className="container-fluid row flex-column flex-md-row">
-          <div className="col-6 vh-100 d-flex justify-content-center align-items-center bgLogin" style={{ backgroundImage: "url('images/background-image.webp')" }}>
+          <div
+            className="col-6 vh-100 d-flex justify-content-center align-items-center bgLogin position-relative"
+            style={{
+              backgroundImage: "url('images/background-image.webp')",
+            }}
+          >
+          <div className="bg-warning opacity-50 position-absolute w-100 h-100"></div>
             <img src="images/logo.png" alt="logo" />
           </div>
           <div className="col p-4 d-flex flex-column justify-content-center m-0 animate__animated animate__fadeInDown noneLogin">
             <h1 className="text-center">Welcome</h1>
-            <p className="text-center text-secondary">Log in into your exiting account</p>
+            <p className="text-center text-secondary">
+              Log in into your exiting account
+            </p>
             <div className="row m-0 p-0 justify-content-start justify-content-md-center">
               <div className="col col-md-8">
                 <hr />
@@ -78,28 +86,51 @@ React.useEffect(() => {
                     <label for="email" className="form-label">
                       E-mail
                     </label>
-                    <input type="email" className="form-control" id="email" name="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="E-mail"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
                   <div className="mb-3">
                     <label for="password" className="form-label">
                       Password
                     </label>
-                    <input type="password" className="form-control" id="password" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
                   </div>
-                  
+
                   <div className="d-grid mt-5">
-                    <button type="submit" className="btn" style={{ backgroundColor: "#efc81a", color: "white" }} onClick={hendleLogin} disabled={isLoading}>
+                    <button
+                      type="submit"
+                      className="btn"
+                      style={{ backgroundColor: "#efc81a", color: "white" }}
+                      onClick={hendleLogin}
+                      disabled={isLoading}
+                    >
                       {isLoading === true ? "Loading..." : "Log in"}
                     </button>
                   </div>
-                  <p className="text-end fs-6 fw-medium mt-3">
-                  </p>
+                  <p className="text-end fs-6 fw-medium mt-3"></p>
                 </form>
               </div>
             </div>
             <p className="text-center">
               Don't have an account?
-              <Link to="/Register" className="text-decoration-none" style={{ color: "#efc81a" }}>
+              <Link
+                to="/Register"
+                className="text-decoration-none"
+                style={{ color: "#efc81a" }}
+              >
                 {" "}
                 Sign up
               </Link>

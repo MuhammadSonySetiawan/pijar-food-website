@@ -133,7 +133,12 @@ function Profile() {
             <Navbar />
           </div>
         </nav>
-        <div className="mt-2 d-flex justify-content-end align-items-center hide-desktop">
+        <div className="mt-2 d-flex justify-content-between align-items-center hide-desktop">
+          <img
+            src="/images/logoNav.png"
+            alt=""
+            style={{ width: "3.5rem", marginLeft: "1rem" }}
+          />
           <button
             className="btn"
             type="button"
@@ -188,7 +193,10 @@ function Profile() {
             <div className="modal-dialog">
               <form className="modal-content">
                 <div className="modal-header">
-                  <h1 className="modal-title fs-5 text-warning" id="exampleModalLabel">
+                  <h1
+                    className="modal-title fs-5 text-warning"
+                    id="exampleModalLabel"
+                  >
                     Edit Profile
                   </h1>
                   <button
@@ -349,7 +357,8 @@ function Profile() {
               <div className="d-flex flex-wrap mt-1">
                 {recipeList.length !== 0 ? (
                   recipeList.map((item, key) => (
-                    <RecipesCardProfile key={key}
+                    <RecipesCardProfile
+                      key={key}
                       title={item?.title}
                       image={item?.recipePicture}
                       id={item?.id}

@@ -18,7 +18,7 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
   }
   return (
     <>
-      <nav aria-label="Page navigation example">
+      
         <ul className="pagination">
           <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
             <a
@@ -46,7 +46,7 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
             </a>
           </li>
         </ul>
-      </nav>
+      
     </>
   );
 }

@@ -121,7 +121,11 @@ function App() {
             </nav>
             <div className="hide-desktop"></div>
             <div className="mt-2 d-flex justify-content-between align-items-center hide-desktop">
-              <img src="/images/logoNav.png" alt="" style={{ width: "3.5rem", marginLeft: "1rem" }} />
+              <img
+                src="/images/logoNav.png"
+                alt=""
+                style={{ width: "3.5rem", marginLeft: "1rem" }}
+              />
               <button
                 className="btn"
                 type="button"

@@ -85,9 +85,10 @@ function Register() {
       <div>
         <div className="row flex-column flex-md-row">
           <div
-            className="col-6 vh-100 d-flex justify-content-center align-items-center bgRegistrasi"
+            className="col-6 vh-100 d-flex justify-content-center align-items-center bgRegistrasi position-relative"
             style={{ backgroundImage: "url('images/background-image.webp')" }}
           >
+            <div className="bg-warning opacity-50 position-absolute w-100 h-100"></div>
             <img src="images/logo.png" alt="logo" />
           </div>
           {/* {loading && <Loading /> } */}
