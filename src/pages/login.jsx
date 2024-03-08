@@ -27,7 +27,7 @@ React.useEffect(() => {
   const hendleLogin = () => {
     setIsLoading(true);
     axios
-      .post(`https://pijar-food-sonny.onrender.com/auth/login`, {
+      .post(`${process.env.REACT_APP_URL}/auth/login`, {
         email: email,
         password: password,
       })
@@ -42,7 +42,6 @@ React.useEffect(() => {
           localStorage.setItem("id", result?.data?.data[0]?.id);
           dispatch(addAuth(result));
           navigate("/profile");
-          // console.log(result?.data?.data[0]?.id);
         });
       })
       .catch((error) => {
@@ -54,7 +53,7 @@ React.useEffect(() => {
       })
       .finally(() => {
         setIsLoading(false);
-      })
+      });
   }
 
     return (

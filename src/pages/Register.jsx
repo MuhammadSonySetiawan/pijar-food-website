@@ -29,7 +29,7 @@ function Register() {
      if(email &&  name && phoneNumber && password){
        if (password == comfirmPassword && password.length >= 8) {
          axios
-           .post(`https://pijar-food-sonny.onrender.com/users`, {
+           .post(`${process.env.REACT_APP_URL}/users`, {
              email: email,
              fullName: name,
              phoneNumber: phoneNumber,
@@ -54,7 +54,7 @@ function Register() {
              });
            })
            .finally(() => {
-             setIsLoading(false)
+             setIsLoading(false);
            });
            
        } else if (password.length < 8) {

@@ -24,9 +24,7 @@ function App() {
   React.useEffect(() => {
     setIsLoading(true);
     axios
-      .get(
-        `https://pijar-food-sonny.onrender.com/recipes?page=1&limit=4&sortType=desc`
-      )
+      .get(`${process.env.REACT_APP_URL}/recipes?page=1&limit=4&sortType=desc`)
       .then((response) => setRecipesList(response?.data?.data))
       .catch((error) => setRecipesList(error?.data?.data))
       .finally(() => {
@@ -36,7 +34,7 @@ function App() {
 
   const hendelSearch = () => {
     axios
-      .get(`https://pijar-food-sonny.onrender.com/recipes`, {
+      .get(`${process.env.REACT_APP_URL}/recipes`, {
         params: {
           keyword,
         },
@@ -47,19 +45,18 @@ function App() {
       );
   };
 
- React.useEffect(() => {
-   fetchData();
- }, [currentPage]);
+  React.useEffect(() => {
+    fetchData();
+  }, [currentPage]);
 
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://pijar-food-sonny.onrender.com/recipes?page=${currentPage}`
+        `${process.env.REACT_APP_URL}/recipes?page=${currentPage}`
       );
       setData(response.data.data);
       setCurrentPage(response.data.pages.carrent);
       setTotalPages(response.data.pages.total);
-     
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -178,7 +175,7 @@ function App() {
           </header>
           {/* <Navbar /> */}
 
-          <header style={{marginTop: "-6rem"}}>
+          <header style={{ marginTop: "-6rem" }}>
             <div className="container">
               <div
                 className="row align-items-center"
@@ -348,7 +345,7 @@ function App() {
                     src={newRecipe?.recipePicture}
                     width="92%"
                     height="500px"
-                    style={{ zindex: 1, borderRadius: "5px" }}
+                    style={{ zindex: 1, borderRadius: "5px", objectFit: "cover" }}
                   />
                 </div>
                 <div className="col-md-5 col-xs-12">

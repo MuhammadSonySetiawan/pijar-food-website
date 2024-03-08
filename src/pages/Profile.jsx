@@ -38,13 +38,13 @@ function Profile() {
       // get data user
       const idUser = localStorage.getItem("id");
       axios
-        .get(`https://pijar-food-sonny.onrender.com/users/${idUser}`)
+        .get(`${process.env.REACT_APP_URL}/users/${idUser}`)
         .then((result) => {
           setProfile(result.data?.data[0]);
 
           // get data resipes user
           axios
-            .get(`https://pijar-food-sonny.onrender.com/recipes/users/me`)
+            .get(`${process.env.REACT_APP_URL}/recipes/users/me`)
             .then((result) => {
               setRecipeList(result?.data?.data);
             });
@@ -55,12 +55,10 @@ function Profile() {
   // hendle refresh
   const hendleRefresh = () => {
     const id = localStorage.getItem("id");
-      axios
-        .get(`https://pijar-food-sonny.onrender.com/users/${id}`)
-        .then((result) => {
-          setProfile(result.data?.data[0]);
-          dispatch(addAuth(result.data.data));
-        });
+      axios.get(`${process.env.REACT_APP_URL}/users/${id}`).then((result) => {
+        setProfile(result.data?.data[0]);
+        dispatch(addAuth(result.data.data));
+      });
   };
 
   // edit profile
@@ -68,7 +66,7 @@ function Profile() {
     const token = localStorage.getItem("token");
     axios
       .patch(
-        `https://pijar-food-sonny.onrender.com/users/`,
+        `${process.env.REACT_APP_URL}/users/`,
         {
           email: email,
           fullName: name,
@@ -100,7 +98,7 @@ function Profile() {
     const token = localStorage.getItem("token");
     axios
       .patch(
-        `https://pijar-food-sonny.onrender.com/users/photo`,
+        `${process.env.REACT_APP_URL}/users/photo`,
         {
           photo,
         },

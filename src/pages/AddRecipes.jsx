@@ -38,7 +38,7 @@ function AddRecipes() {
       const token = localStorage.getItem("token");
       axios
         .post(
-          `https://pijar-food-sonny.onrender.com/recipes`,
+          `${process.env.REACT_APP_URL}/recipes`,
           {
             recipePicture: recipePicture,
             title: title,

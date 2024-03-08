@@ -21,9 +21,9 @@ function Detail() {
     setIsLoading(true);
     window.scrollTo(0, 0);
     axios
-      .get(`https://pijar-food-sonny.onrender.com/recipes/${id}`)
+      .get(`${process.env.REACT_APP_URL}/recipes/${id}`)
       .then((response) => setCurrentRecipe(response?.data?.data[0]))
-      .catch((error)=> console.log(error))
+      .catch((error) => console.log(error))
       .finally(() => {
         setIsLoading(false);
       });
